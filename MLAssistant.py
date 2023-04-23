@@ -40,6 +40,7 @@ class Assistant:
         
         while identifier in current_ids:
             identifier = model_name + '_' + str(index)
+            index += 1
         
         self.models.append({'id': identifier, 'model': model})
     
@@ -99,7 +100,7 @@ class Assistant:
             for element in self.models:
                 if element["id"] == model_id:
                     model = element["model"]
-                    
+            
             model.fit(self.X, self.y)
             
             if predict_proba:
